@@ -1,5 +1,4 @@
-# websites_url_monitoring_python_app
-## A Python Application to Monirtor the Website URL's - Containerized application and deploying on AWS ECS Fargate
+# A Python Application to Monirtor the Website URL's - Containerized application and deploying on AWS ECS Fargate
 ## Scenario 1 - Terraform, AWS
 In this scenario Terraform deploys highly available ECS Fargate Cluster with spreading to 03 AZ's.
 
