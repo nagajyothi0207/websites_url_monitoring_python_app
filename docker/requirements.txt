@@ -1,0 +1,8 @@
+requests
+pandas
+click
+Flask
+itsdangerous
+Jinja2
+MarkupSafe
+Werkzeug
