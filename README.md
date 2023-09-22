@@ -14,6 +14,8 @@ If url is not accessable/error it will provide the status of -1. If url is acces
 Please refer the IAC deployment configuration in `main.tf` file
 By using this terraform stack the below resources will be provisioned to accomodate this architecture design:
 
+## Note: I have used default VPC and Public Subnets for this application deployment. Also included Networking stack for custom vpc deployment incase if you don't have the default VPC.
+
 ## Deployment instructions:
 1) **Run the `sh terraform-deploy.sh app1` file for infrastructure and App deployment on the AWS environment. This terraform-deploy script takes care of the getting the Public IP of your network and setting the App name and aws region based on your default profile configuration**
 2) **The Monitoring Application will be accessable to given Public IP in the terraform.tfvars**
