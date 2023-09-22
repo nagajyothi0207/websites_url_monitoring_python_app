@@ -1,16 +1,12 @@
 variable "aws_region" {
-  default = "ap-southeast-1"
+  default = ""
 }
 variable "vpc_id" {
-  default = "vpc-0a33ca42de6280a66"
+  default = ""
 }
 variable "subnets" {
-  type = list(string)
-  default = [
-    "subnet-03746b2129f87b33b",
-    "subnet-0218c046651cff784",
-    "subnet-005acbfdd0aa7ecac"
-  ]
+  type    = list(string)
+  default = []
 }
 variable "image_tag" {
   default = "latest"

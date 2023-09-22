@@ -1,21 +1,26 @@
 #!/bin/bash
+
 NOW=`date +%s`
+rm -rf .common.tf
+echo "#Terraform inputs" >common.tfvars
+AWS_DEFAULT_REGION=`aws configure list | grep region | awk '{print $2}'`
+REGION=\"${AWS_DEFAULT_REGION}\"
+echo "aws_region = " $REGION" " >>common.tfvars
 YOUR_PUBLIC_IP_ADDRESS=$(curl -s ifconfig.me)
 public_ip_restriction=\"${YOUR_PUBLIC_IP_ADDRESS}/32\"
+echo "alb_inbound_allowed_public_ip = " $public_ip_restriction" " >>common.tfvars
 # Main variables to modify for your account
-AWS_ACCOUNT_ID=597849092155
-NAME='myapp'
-AWS_DEFAULT_REGION='ap-southeast-1'
+AWS_ACCOUNT_ID=`aws sts get-caller-identity --query Account --output text`
+NAME=$1
+APP_NAME=\"${NAME}\"
+[[ -z "$NAME" ]] && { echo "must pass a App anme param" ; exit 1; }
+echo "application_name             = " $APP_NAME" " >>common.tfvars 
 VERSION='latest'
-BRANCH=$1
-#SHA1=`echo -n $NOW | openssl dgst -sha1 |awk '{print $NF}'`
-[[ -z "$BRANCH" ]] && { echo "must pass a branch param" ; exit 1; }
 echo "this script helps to bootstrap the project deployment resources on Default VPC"
-#sed -i "s/alb_inbound_allowed_public_ip/alb_inbound_allowed_public_ip = '$public_ip_restriction'/g" terraform.tfvars
 terraform init -upgrade
 terraform fmt
 terraform validate
-terraform plan -out myplan
+terraform plan -var-file="terraform.tfvars" -var-file="common.tfvars" -out myplan
 terraform apply myplan
 echo ""
 echo "Terraform deployment has been completed. Proceeding to deploy the Docker application on ECS"
@@ -39,8 +44,9 @@ echo ECS_CLUSTER_NAME - $NAME, ECS_SERVICE_NAME - $NAME
 aws ecs update-service --cluster $NAME --service $NAME --force-new-deployment 2>&1 | tee ./ecs_service_update_logs.txt
 sleep 10
 echo ECS service $NAME updated
-
 terraform output
+echo ""
 echo "Click the Above URL to test the application status"
+echo "Your ECS Containerized Application Setup has been Successfully deployed"
 exit 0
 
