@@ -1,5 +1,7 @@
 #!/bin/bash
-
+# Author: Naga Jyothi
+# Usage:  terraform-deploy.sh <name of the application>. e.g: `sh terraform-deploy.sh app1`
+# Description: This script helps to automate the creation of common.tfvars with required values and help to deploy the terraform code and Application Code.
 NOW=`date +%s`
 rm -rf .common.tf
 echo "#Terraform inputs" >common.tfvars
@@ -41,7 +43,7 @@ echo Build completed on `date`
 # CD stage
 echo Deploying new task definition $NAME:$VERSION to ECS cluster...
 echo ECS_CLUSTER_NAME - $NAME, ECS_SERVICE_NAME - $NAME
-aws ecs update-service --cluster $NAME --service $NAME --force-new-deployment 2>&1 | tee ./ecs_service_update_logs.txt
+aws ecs update-service --cluster $NAME --service $NAME --force-new-deployment 2>&1 | tee ./$NAME.txt
 sleep 10
 echo ECS service $NAME updated
 terraform output

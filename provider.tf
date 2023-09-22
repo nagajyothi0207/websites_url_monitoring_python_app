@@ -13,7 +13,7 @@ provider "aws" {
   default_tags {
     tags = {
       Environment  = "Development"
-      Project_name = "Monitoring-App"
+      Project_name = var.application_name
     }
   }
 }
