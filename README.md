@@ -31,7 +31,8 @@ By using this terraform stack the below resources will be provisioned to accomod
 
 
 ## Refer the Networking Stack module if you want to deploy the Custom VPC with subnets.
-Network stack:
+
+Network stack: https://github.com/nagajyothi0207/terraform_modules_registry/tree/main/NetworkStack
 ![Execution Results](./screenshots/Network_stack_terraform.png)
 
 1) **A VPC with CIDR range of 172.31.0.0/16**
