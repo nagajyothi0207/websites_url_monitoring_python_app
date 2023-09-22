@@ -1,4 +1,4 @@
-# A Python Application to Monirtor the Website URL's - Containerized application and deploying on AWS ECS Fargate
+# A Python Application to Monitor the Website URL's - Containerized application and deploying on AWS ECS Fargate
 ## Scenario 1 - Terraform, AWS
 In this scenario Terraform deploys highly available ECS Fargate Cluster with spreading to 03 AZ's with 02 container tasks for high availablity. The python application will monitor the urls provided in the CSV file. 
 If url is not accessable/error it will provide the status of -1. If url is accessable and responded to 200 status code, it will print the success message.
