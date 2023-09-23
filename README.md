@@ -9,7 +9,7 @@ If url is not accessable/error it will provide the status of -1. If url is acces
 ## Resources that created by using this Module:
 1) **ECS Cluster for Fargate enabled with 02 Tasks**
 2) **ECR registry for Docker Images to Store**
-3) **Application LoadBalancer (ALB) with TargetGroup that exposes the application on Port 80**
+3) **Application LoadBalancer (ALB) with TargetGroup that exposes the application on Port 80 to your public IP Address**
 4) **SecurityGroup for ECS Fargate containers to accept the traffic from ALB and another Security Group for ALB.**
 
 
