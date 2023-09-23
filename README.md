@@ -129,5 +129,7 @@ For more examples, please refer to the examples directory.
 * Terraform-deploy.sh script helps to build the workflow for Infrastracture and Application deployments using CICD pipelines.
 * Application code can be seperated from the Terraform Code repository/Module and deploy the Application code changes  using seperate pipeline which developer can do changes anytime.
 
+## To destroy the setup:
+* Run the `terraform-destroy.sh app_name` script for removing infrastructure and docker images from ECR registry.
 
 ## ---------------------END----------------------------
