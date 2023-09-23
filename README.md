@@ -48,10 +48,11 @@ output "monitoring_status" {
 ## Note: I have used default VPC and Public Subnets for this application deployment. Also included Networking stack for custom vpc deployment incase if you don't have the default VPC.
 
 ## Deployment instructions:
-1) **Run the `sh terraform-deploy.sh app1` file for infrastructure and App deployment on the AWS environment. The `terraform-deploy.sh` script takes care of the getting the Public IP of your network and setting the App name and aws region based on your default profile configuration. Automatically generates the `common.tfvars` file**
-2) **The Monitoring Application will be accessable to given Public IP in the terraform.tfvars**
-3) **To view the  website url monitoring status, please click the terraform outputs for ALB Url.**
-4) **To view the monitoring url status, please click the terraform monitoring_staus url**
+1) **Clone this repository and follow the rest of the instructions**
+2) **Run the `sh terraform-deploy.sh app1` file for infrastructure and App deployment on the AWS environment. The `terraform-deploy.sh` script takes care of the getting the Public IP of your network and setting the App name and aws region based on your default profile configuration. Automatically generates the `common.tfvars` file**
+3) **The Monitoring Application will be accessable to given Public IP in the terraform.tfvars**
+4) **To view the  website url monitoring status, please click the terraform outputs for ALB Url.**
+5) **To view the monitoring url status, please click the terraform monitoring_staus url**
 
 ## Execution Screenshot:
 ![Execution Screenshot](./screenshots/execution_screenshot.png)
